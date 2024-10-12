@@ -49,7 +49,6 @@ def ingredient_list():
 
 @allure.step('Создание заказа авторизованным пользователем')
 def create_order(access_token):
-    order = {}
-    order['ingredients'] = ingredient_list()
+    order = {'ingredients': ingredient_list()}
     response = requests.post(api_url.orders_url, headers={"Authorization": access_token}, data=order)
     return response
